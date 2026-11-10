@@ -1,0 +1,22 @@
+body {
+    background-color:azure;
+    color:cadetblue;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 24px;
+
+}
+h1 {
+    color:darkslategray;
+}
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 500px;
+    gap: 20px;
+}
+
+.product-item form {
+    margin: 0;
+}

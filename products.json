@@ -1,0 +1,12 @@
+[
+    {
+        "nazvanie": "молоко",
+        "kategoria": "milk",
+        "kolichestvo": 0.7,
+        "meraizmerenia": "litrs",
+        "data_izgot": "2026-11-06",
+        "srok_godn": "2026-11-12",
+        "ostalos": null,
+        "storage": "Холодильник"
+    }
+]

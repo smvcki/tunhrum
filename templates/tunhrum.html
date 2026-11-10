@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='tunhrum.css') }}">
+        <meta name="description" content="Ваш персональный холодильник онлайн">
+        <meta charset="UTF-8">
+        <title>ТунХрум</title>
+    </head>
+
+    <body>
+        <div>
+            <h1>ТунХрум</h1>
+            <p>~Мой холодильник~</p>
+        </div>
+        <div>
+            <p>Холодильник</p>
+           <ul>
+            {% for index,product in holodil %}
+            <li class="product-item">
+                <span>
+                    {{ product['nazvanie'] }}
+                    — {{ product['kolichestvo'] }}
+                    {{ product['meraizmerenia'] }}
+                </span>
+                <a href="{{ url_for('edit', product_id=index) }}">Редактировать</a>
+                <form action="/delete/{{ index }}" method="POST">
+                    <button type="submit">Удалить</button>
+                </form>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <p>Шкаф</p>
+            <ul>
+                {%for index,product in shkaf%}
+                <li class="product-item">
+                <span>
+                    {{ product['nazvanie'] }}
+                    — {{ product['kolichestvo'] }}
+                    {{ product['meraizmerenia'] }}
+                </span>
+                <a href="{{ url_for('edit', product_id=index) }}">Редактировать</a>
+                <form action="/delete/{{ index }}" method="POST">
+                    <button type="submit">Удалить</button>
+                </form>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <p>Морозилка</p>
+            <ul>
+                {%for index,product in morozilka%}
+                <li class="product-item">
+                <span>
+                    {{ product['nazvanie'] }}
+                    — {{ product['kolichestvo'] }}
+                    {{ product['meraizmerenia'] }}
+                </span>
+                <a href="{{ url_for('edit', product_id=index) }}">Редактировать</a>
+                <form action="/delete/{{ index }}" method="POST">
+                    <button type="submit">Удалить</button>
+                </form>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <form method="post">
+                <label for="food">Продукт:</label>
+                <input
+                    type="text"
+                    id="food"
+                    name="food"
+                    required
+                >
+                <label for="kategoria">Категория:</label>
+                <select id="kategoria" name="kategoria">
+                    <option value="grocery">Бакалея</option>
+                    <option value="milk">Молочные изделия</option>
+                    <option value="vegetables">Овощи</option>
+                </select>
+            
+            
+                <label for="kolvo">Количество</label>
+                
+                <input
+                type="number"
+                id="kolvo"
+                name="kolvo"
+                step="any"
+                min="0"
+                required
+                >
+
+            
+            
+                <label for="meraizmerenia">Мера измерения</label>
+                <select id="meraizmerenia" name="meraizmerenia">
+                    <option value="kg">Килограмм</option>
+                    <option value="gramm">Грамм</option>
+                    <option value="parts">Штуки</option>
+                    <option value="litrs">Литры</option>
+                    <option value="else">Другое</option>
+                </select>
+                
+                <label for="storage">Место хранения:</label>
+                <select id="storage" name="storage">
+                    <option value="Холодильник">Холодильник</option>
+                    <option value="Шкаф">Шкаф</option>
+                    <option value="Морозилка">Морозилка</option>
+                </select>
+
+            
+            
+                <label for="data0">Дата изготовления</label>
+                <input
+                    type="date"
+                    id="'data0"
+                    name="data0"
+                    
+                >
+
+            
+            
+                <label for="data">Срок годности до</label>
+                <input
+                    type="date"
+                    id="'data"
+                    name="data"
+                >
+
+            
+                <button type="sumbit">Добавить</button>
+                
+            </form>
+        </div>
+
+    </body>
+
+</html> 
